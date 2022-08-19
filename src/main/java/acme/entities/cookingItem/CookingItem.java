@@ -1,7 +1,10 @@
 package acme.entities.cookingItem;
 
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -11,6 +14,7 @@ import org.hibernate.validator.constraints.URL;
 
 import acme.framework.datatypes.Money;
 import acme.framework.entities.AbstractEntity;
+import acme.roles.Chef;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -46,6 +50,12 @@ public class CookingItem extends AbstractEntity{
 
 	@NotNull
 	protected CookingItemType type;
+	
+	@ManyToOne
+	@Valid
+	@NotNull
+	@Basic(optional = false)
+	protected Chef chef;
 	
 	
 	
