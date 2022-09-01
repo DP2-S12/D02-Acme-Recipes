@@ -36,25 +36,28 @@ public class CookingItem extends AbstractEntity{
 	protected String code;
 	
 
-	
 	@NotBlank
 	@Length(max = 255)
 	protected String description;
 	
 	@NotNull
+	@Valid
 	protected Money retailPrice;
 	
 	@URL
 	protected String link;
 	
+	@NotNull
+	protected Status status;
+	
 
 	@NotNull
 	protected CookingItemType type;
 	
-	@ManyToOne
+
+	@ManyToOne(optional=false)
 	@Valid
 	@NotNull
-	@Basic(optional = false)
 	protected Chef chef;
 	
 	
